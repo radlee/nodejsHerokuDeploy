@@ -57,8 +57,13 @@ app.set('view engine', 'hbs');
 app.get("/login", function(req, res, next){
   res.render("login")
 })
-app.get("/music", mid.requiresLogin, function(req, res){
-  res.render("music", {
+app.get("/design", mid.requiresLogin, function(req, res){
+  res.render("design", {
+    user: req.session.user
+  })
+});
+app.get("/blog", mid.requiresLogin, function(req, res){
+  res.render("blog", {
     user: req.session.user
   })
 });
